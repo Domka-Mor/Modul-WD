@@ -7,7 +7,7 @@
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
-  max-width: 30rem;
+  max-width: 40rem;
   height: auto;
   backdrop-filter: blur(5px);
   box-shadow: 0 25px 45px rgba(0,0,0,0.1);

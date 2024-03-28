@@ -9,7 +9,7 @@
 
 .items-wrap{
   width: 100%;
-  padding: 10rem;
+  padding: 8rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -22,8 +22,8 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 40rem;
-  max-height: 35rem;
+  max-width: 45rem;
+  max-height: 40rem;
   backdrop-filter: blur(5px);
   box-shadow: 0 25px 45px rgba(0,0,0,0.1);
   border: 1px solid rgba(255,255,255,0.5);
@@ -42,22 +42,30 @@
 .img-card {
   position: relative;  
   display: flex;
-  max-height: 20rem;
-  width: auto;
-/*  height: 25rem;
-  width: 35rem;*/
+  height: 20rem;
+  width: 35rem;
   margin: 1.5rem;
   overflow: hidden;
   border-radius: 10px;
 }
 
-.img-card img {
+.img-modal {
+  position: relative;  
+  display: flex;
+  height: 20rem;
+  width: 30rem;
+  margin: 1.5rem;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img-card img,.img-modal img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .img-content{
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 2rem 0 2rem 0;
   text-transform: capitalize;
 }
 
@@ -125,23 +133,41 @@
 /*Responsive*/
 @media screen and (max-width: 1650px) {
   .card{
-    max-width: 30rem;
+    max-width: 40rem;
+    max-height: 30rem;
+  }
+  .img-card {
+    height: 20rem;
+    width: 25rem;
+  }
+  .img-modal {
+    height: 17rem;
+    width: 25rem; 
   }
 }
 
 @media screen and (max-width: 990px) {
+  .card{
+    max-width: 40rem;
+    max-height: 30rem;
+  }
+  .img-card {
+    height: 20rem;
+    width: 20rem;
+  }
+  .img-modal {
+    height: 15rem;
+    width: 22rem; 
+  }
   .items-wrap{
     padding: 7rem 5rem;
-  }
-  .card{
-    max-width: 25rem;
   }
   .img-person{
     font-size: 1.2rem;
     padding: 0 0 0.8rem 0;
   }
   .img-content{
-    padding: 0.4rem 0 0.4rem 0;
+    padding: 1.5rem 0 1.5rem 0;
   }
   .img-adress{
     font-size: 1rem;
@@ -163,17 +189,24 @@
     padding: 7rem 2rem;
   }
   .card{
-    max-width: 20rem;
+    max-width: 40rem;
+    max-height: 23rem;
   }
   .img-card {
+    height: 20rem;
+    width: 15rem;
     margin: 1rem;
+  }
+  .img-modal {
+    height: 13rem;
+    width: 20rem; 
   }
   .img-person{
     font-size: 1rem;
     padding: 0 0 1rem 0;
   }
   .img-content{
-    padding: 0.3rem 0 0.3rem 0;
+    padding: 1rem 0 1rem 0;
   }
   .img-adress{
     font-size: 0.8rem;
@@ -195,14 +228,24 @@
   .items-wrap{
     padding: 6rem 1.5rem;
   }
+  .card{
+    max-width: 40rem;
+    max-height: 20rem;
+  }
   .img-card {
+    height: 20rem;
+    width: 12rem;
     margin: 0.8rem;
+  }
+  .img-modal {
+    height: 9rem;
+    width: 12rem; 
   }
   .img-person{
     font-size: 0.9rem;
   }
   .img-content{
-    padding: 0.2rem 0 0.2rem 0;
+    padding: 0.5rem 0 0.5rem 0;
   }
   .img-adress,.img-task{
     font-size: 0.7rem;

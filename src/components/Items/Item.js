@@ -83,7 +83,7 @@ export default function Item({task}) {
 			          onCancel={closeModal}
 			        >            			          
 				      	<div>
-					        <div className='img-card'>
+					        <div className='img-modal'>
 					          	{task.taskImage ?
 				                    <img src={`http://localhost:3001/${task.taskImage[0]}`} alt='img'/>
 									:
