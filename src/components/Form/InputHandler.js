@@ -27,6 +27,7 @@ export default function InputHandler(props) {
 
     	if (file.type.split("/")[0] === "image" && file.size <= maxFileSize) {
     		setImage(file)
+    		props.onChange(file);
     		setMessage(''); 
 		} else if (file.type.split("/")[0] === "image" && file.size >= maxFileSize){
 			setMessage(`${file.name} prekročil povolenú veľkosť súboru 5MB`);
@@ -68,7 +69,7 @@ export default function InputHandler(props) {
 						</div>
 					</div>
 
-					{image && (
+					{image && image.name !==0 && (
 			          	<div className='photoArr text-center'>							            
 				            <div className='photoPreloader text-center'>	
 				            	<p className='deletePhoto' onClick={() => deleteFile()}>x</p> 							              		 

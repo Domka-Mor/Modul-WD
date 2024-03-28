@@ -9,6 +9,7 @@ export default function Form() {
 
 	const [responseMessage, setResponseMessage] = useState('')
 	const [open,setOpen] = useState(false)
+	const [image, setImage] = useState(null);
 
 	const refForm = useRef();
 
@@ -22,6 +23,7 @@ export default function Form() {
 
   	const resetForm = () => {
 	    refForm.current.reset();
+	    setImage(null)
   	};
 
 	const createNewTask = (e) => {
@@ -32,9 +34,10 @@ export default function Form() {
 
 		const data = new FormData(e.currentTarget);
 	    data.append("date", date);
-
+	    if(image && image.size !== 0){
+	    	data.set("taskImage", image);
+	    }
 	    for (let [key, value] of data.entries()) {
-	    	console.log(key,value)
 	      	if(typeof(value) === 'string'){
 		      	const result = checkFormData(key, value, checkNumber, checkSpecChar, checkLetter)
 		      	if(!result){
@@ -43,7 +46,7 @@ export default function Form() {
 		      		return;
 		      	}
 		    } else if(key === 'taskImage'){
-		    	if(typeof value === 'object' && value !== null && value.size === 0){
+		    	if(value && value.size === 0){
 		    		setResponseMessage('Prilož obrázok, nešaškuj.')
 		    		openModal();
 		    		return;
@@ -68,23 +71,30 @@ export default function Form() {
 		    case 201 || 200:
 		    	text = 'Podnet bol vytvorený, ďakujeme.'
 		   		setResponseMessage(text);
+		   		handleFieldChange(null);
 		   		resetForm();
 		   		openModal();
 		    break;
 		    case 500:
 		    	text = 'OMG, nedefinovaná chyba! :O'
 			    setResponseMessage(text);
+			    handleFieldChange(null);
 			    resetForm();
 		   		openModal();
 		    break; 
 		    default:
 		    	text = 'Dobre už bolo... :/' 
 		    	setResponseMessage(text);
+		    	handleFieldChange(null);
 		    	resetForm();
 		   		openModal();
 		  }
 		})         
 	}; 
+
+	const handleFieldChange = (value) => {
+	    setImage(value)
+	};
 
 	return (
 		<>
@@ -125,7 +135,7 @@ export default function Form() {
 			                </div>		                
 
 			                <div className='input-image'>
-			                	<InputHandler image type='file' value='taskImage' messageType='default'/>
+			                	<InputHandler image type='file' value='taskImage' messageType='default' onChange={handleFieldChange}/>
 			                </div>
 
 			                <div className='input'>

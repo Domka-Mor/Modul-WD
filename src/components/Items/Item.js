@@ -25,7 +25,6 @@ export default function Item({task}) {
 	        entries.forEach((entry)=>{
 	           if (entry.isIntersecting) {
 	              setVisible(entry.isIntersecting);
-	              console.log(entry.isIntersecting)
 	              observer.unobserve(cardRef);
 	            }
 	        })
