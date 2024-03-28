@@ -1,10 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Routes,Route} from 'react-router-dom';
-import Form from './components/Form/Form';
-import Navbar from './components/Navbar/Navbar';
-import Items from './components/Items/Items';
-import Error from './components/Error/Error';
+import Form from './components/Form';
+import Navbar from './components/Navbar';
+import Items from './components/Items';
+import Error from './components/Error';
 
 function App() {
 
